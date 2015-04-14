@@ -2,8 +2,8 @@
 /vendor
 composer.phar
 composer.lock
-.env.*.php
-.env.php
+.env
+.env.example
 .DS_Store
 Thumbs.db
 /bower_components
