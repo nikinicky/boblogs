@@ -11,6 +11,10 @@
         <link rel="stylesheet" href="{!! asset('css/style.css') !!}"/>                
         <link href="/css/app.css" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+        <!--AngularJS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+        <script src="js/app.js"></script>
         @show 
     </head>                                                                         
     <body>                                                                          
@@ -27,6 +31,7 @@
                       <li><a href="{!! url('/auth/login') !!}">Login</a></li> 
                       @endif
                     @else
+                    <li><a href="{!! url('/todoapp') !!}">Todo List</a></li> 
                     <li><a href="{!! url('/auth/logout') !!}">Logout</a></li> 
                     @endif
                 </ul> 
