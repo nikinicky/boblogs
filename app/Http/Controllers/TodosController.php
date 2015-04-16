@@ -2,11 +2,25 @@
 
 use App\Todo;
 use App\Http\Requests;
+use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
 class TodosController extends Controller {
+
+  protected $todo;
+
+  /**
+   * Create new todo instance
+   *
+   * @return void
+   */
+  public function __construct(Todo $todo)
+  {
+    $this->todo = $todo;
+  }
+  
 
 	/**
 	 * Display a listing of the resource.
@@ -34,10 +48,13 @@ class TodosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(TodoRequest $request)
 	{
-    $todo = Todo::create(Request::all());
-    return $todo;
+    // $todo = Todo::create($request>all());
+    $this->todo->title = $request->title;
+    $this->todo->done = 0; 
+    $this->todo->save();
+    return $this->todo;
 	}
 
 	/**
@@ -68,10 +85,10 @@ class TodosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(TodoRequest $request, $id)
 	{
     $todo = Todo::find($id); 
-    $todo->done = Request::input('done');
+    $todo->done = $request->input('done');
     $todo->save();
 
     return $todo;

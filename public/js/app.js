@@ -3,14 +3,14 @@ var app = angular.module('todoApp', [], function($interpolateProvider) {
   $interpolateProvider.endSymbol('%>');
 });
 
-app.controller('todoController', function($scope, $http) {
+app.controller('TodoController', function($scope, $http) {
 
   $scope.todos = [];
   $scope.loading = false;
 
   $scope.init = function() {
     $scope.loading = true;
-    $http.get('/api/todos').
+    $http.get('api/todos').
       success(function(data, status, headers, config) {
         $scope.todos = data;
         $scope.loading = false;
@@ -19,7 +19,7 @@ app.controller('todoController', function($scope, $http) {
 
   $scope.addTodo = function() {
     $scope.loading = true;
-    $http.post('/api/todos', {
+    $http.post('api/todos', {
       title: $scope.todo.title,
       done: $scope.todo.done
     }).success(function(data, status, headers, config) {
@@ -31,7 +31,7 @@ app.controller('todoController', function($scope, $http) {
 
   $scope.updateTodo = function (todo) {
     $scope.loading = true;
-    $http.put('/api/todos' + todo.id, {
+    $http.put('api/todos/' + todo.id, {
       title: todo.title,
       done: todo.done
     }).success(function(data, status, headers, config) {
@@ -45,7 +45,7 @@ app.controller('todoController', function($scope, $http) {
 
     var todo = $scope.todos[index];
 
-    $http.delete('api/todos' + todo.id)
+    $http.delete('api/todos/' + todo.id)
       .success(function() {
         $scope.todos.splice(index, 1);
         $scope.loading = false;

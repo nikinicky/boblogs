@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TodoRequest;
 
 use Illuminate\Http\Request;
 
@@ -32,9 +33,8 @@ class TodoAppController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(TodoRequest $request)
 	{
-		//
 	}
 
 	/**

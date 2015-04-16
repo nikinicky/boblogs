@@ -17,6 +17,7 @@ class CreateTodoTable extends Migration {
       $table->increments('id');
       $table->string('title');
       $table->boolean('done');
+      $table->rememberToken();
       $table->timestamps();
 		});
 	}

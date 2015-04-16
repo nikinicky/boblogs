@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-<div class="container" ng-app="todoApp" ng-controller="TodoController">
-  <h1>bo bo blogs todo apps</h1> 
+<div class="container" ng-controller="TodoController">
+  <h1>To Do Apps</h1> 
   <div class="row">
     <div class="col-md-4">
       <input type="text" ng-model="todo.title"> 
@@ -15,8 +15,8 @@
      <table class="table table-striped">
        <tr ng-repeat='todo in todos'>
          <td><input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="todo.done" ng-change="updateTodo(todo)"></td>
-         <td></td>
-         <td><button class="btn btn-danger btn-xs" ng-click="deleteTodoo($index)"><span class="glyphicon glyphicon-trash"></span></button></td>
+         <td><% todo.title %></td>
+         <td><button class="btn btn-danger btn-xs" ng-click="deleteTodo($index)"><span class="glyphicon glyphicon-trash"></span></button></td>
        </tr>
      </table>
     </div>

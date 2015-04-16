@@ -10,3 +10,4 @@ Thumbs.db
 /node_modules
 /.idea
 /.sass-cache
+/resources/assets/vendor

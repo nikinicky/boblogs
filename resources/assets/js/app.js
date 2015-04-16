@@ -10,8 +10,8 @@ app.controller('TodoController', function($scope, $http) {
 
   $scope.init = function() {
     $scope.loading = true;
-    $http.get('/api/todos').
-      success(function(data, status, headers, config) {
+    $http.get('/api/todos')
+      .success(function(data, status, headers, config) {
         $scope.todos = data;
         $scope.loading = false;
       });
@@ -31,7 +31,7 @@ app.controller('TodoController', function($scope, $http) {
 
   $scope.updateTodo = function (todo) {
     $scope.loading = true;
-    $http.put('/api/todos' + todo.id, {
+    $http.put('/api/todos/' + todo.id, {
       title: todo.title,
       done: todo.done
     }).success(function(data, status, headers, config) {

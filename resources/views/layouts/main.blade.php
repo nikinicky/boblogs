@@ -1,5 +1,5 @@
 <!doctype html>                                                                     
-<html lang="en"> 
+<html lang="en" ng-app="todoApp"> 
     <head>                                                                          
         <meta charset="utf-8"> 
         <title>                                                                     
