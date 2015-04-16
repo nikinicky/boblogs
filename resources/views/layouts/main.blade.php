@@ -13,8 +13,9 @@
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
         <!--AngularJS-->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
-        <script src="js/app.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script> -->
+        <script src="{!! asset('js/app.min.js') !!}"></script>
+        <script src="{!! asset('js/angular.min.js') !!}"></script>
         @show 
     </head>                                                                         
     <body>                                                                          

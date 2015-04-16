@@ -22,14 +22,23 @@ var paths = {
 gulp.task('script', function() {
   gulp.src([
       paths.dev.js + '*.js',
-      paths.dev.vendor + 'angular/angular.min.js'
+      // paths.dev.vendor + 'angular/angular.min.js'
       ])
-    .pipe(concat('app.min.js'))
     .pipe(include())
-    .pipe(uglify())
+    // .pipe(uglify())
+    .pipe(concat('app.min.js'))
     .pipe(gulp.dest(paths.production.js))
     .pipe(notify({
       message: '"Script" completed!!'
+    }));
+});
+
+gulp.task('bowerjs', function() {
+  gulp.src(paths.dev.vendor + 'angular/angular.min.js')
+    .pipe(include())
+    .pipe(gulp.dest(paths.production.js))
+    .pipe(notify({
+      message: '"bowerjs" success!!'
     }));
 });
 
@@ -65,6 +74,7 @@ gulp.task('watch', function() {
 
 gulp.task('default', [
     'script',
+    'bowerjs',
     // 'style',
     'watch'
     ]);

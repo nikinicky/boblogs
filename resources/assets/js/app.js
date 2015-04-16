@@ -45,7 +45,7 @@ app.controller('TodoController', function($scope, $http) {
 
     var todo = $scope.todos[index];
 
-    $http.delete('api/todos' + todo.id)
+    $http.delete('api/todos/' + todo.id)
       .success(function() {
         $scope.todos.splice(index, 1);
         $scope.loading = false;
